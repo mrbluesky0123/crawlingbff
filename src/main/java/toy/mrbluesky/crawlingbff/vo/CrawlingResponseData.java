@@ -1,6 +1,8 @@
 package toy.mrbluesky.crawlingbff.vo;
 
-public class CrawlingResponseData {
+import toy.mrbluesky.fwk.base.BaseResponseData;
+
+public class CrawlingResponseData implements BaseResponseData {
 
   private String code;
   private String message;
