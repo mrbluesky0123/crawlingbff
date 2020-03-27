@@ -1,19 +1,18 @@
 package toy.mrbluesky.crawlingbff.service;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import toy.mrbluesky.crawlingbff.vo.CrawlingRequest;
 import toy.mrbluesky.crawlingbff.vo.CrawlingResponse;
+import toy.mrbluesky.fwk.base.BaseService;
 
 @Service
-@Data
 @NoArgsConstructor
-public class CrawlingRequestService {
+public class CrawlingRequestService extends BaseService {
 
     // Call external API
-    public CrawlingResponse requestCrawling(CrawlingRequest crawlingRequest) {
+    public ResponseEntity<CrawlingResponse> requestCrawling(CrawlingRequest crawlingRequest) {
 
     }
 

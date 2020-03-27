@@ -11,13 +11,9 @@ public class BaseObject {
 
     protected static final Logger logError = (Logger) LoggerFactory.getLogger("fileError");
 
+    @Autowired
     protected HttpServletRequest httpServletRequest;
+    @Autowired
     protected HttpServletResponse httpServletResponse;
-
-//    @Autowired
-    public BaseObject(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
-        this.httpServletRequest = httpServletRequest;
-        this.httpServletResponse = httpServletResponse;
-    }
 
 }

@@ -35,8 +35,8 @@ public class BaseException extends RuntimeException {
         //==========================================================================
         // Main Message Print
         //==========================================================================
-        StringBuffer sb = new StringBuffer();
-        sb.append("Error Message: " + message);
+        StringBuilder sb = new StringBuilder();
+        sb.append("Error Message: ").append(message);
 
         //==========================================================================
         // Stack Trace
