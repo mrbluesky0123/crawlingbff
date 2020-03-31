@@ -3,13 +3,17 @@ package toy.mrbluesky.fwk.base;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
 public class DefaultResponse {
 
     private int code;
     private String message;
     private BaseResponseData baseResponseData;
+
+    public DefaultResponse(int code, String message, BaseResponseData baseResponseData) {
+        this.code = code;
+        this.message = message;
+        this.baseResponseData = baseResponseData;
+    }
 
     public static DefaultResponseBuilder builder() {
         return new DefaultResponseBuilder();

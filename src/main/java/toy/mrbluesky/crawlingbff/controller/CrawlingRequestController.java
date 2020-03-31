@@ -4,10 +4,7 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import toy.mrbluesky.crawlingbff.service.CrawlingRequestService;
 import toy.mrbluesky.crawlingbff.vo.CrawlingRequest;
 import toy.mrbluesky.crawlingbff.vo.CrawlingResponse;
@@ -18,17 +15,22 @@ import toy.mrbluesky.crawlingbff.vo.CrawlingResponse;
 @Slf4j
 public class CrawlingRequestController {
 
-  private CrawlingRequestService crawlingRequestService;
+    private CrawlingRequestService crawlingRequestService;
 
-  @Autowired
-  public CrawlingRequestController(CrawlingRequestService crawlingRequestService) {
-    this.crawlingRequestService = crawlingRequestService;
-  }
+    @Autowired
+    public CrawlingRequestController(CrawlingRequestService crawlingRequestService) {
+        this.crawlingRequestService = crawlingRequestService;
+    }
 
-  @PostMapping("/v1/crawlreq")
+  /*@PostMapping("/v1/crawlreq")
   public ResponseEntity<CrawlingResponse> requestCrawling(@RequestBody CrawlingRequest crawlingRequest) {
 
     return null;
-  }
+  }*/
+
+    @GetMapping("/v1/test")
+    public String requestCrawling() {
+        return this.crawlingRequestService.requestCrawling();
+    }
 
 }

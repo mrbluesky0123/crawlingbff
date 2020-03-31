@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class BaseObject {
 
-    protected static final Logger logError = (Logger) LoggerFactory.getLogger("fileError");
+//    protected static final Logger logError = (Logger) LoggerFactory.getLogger("fileError");
 
     @Autowired
     protected HttpServletRequest httpServletRequest;
