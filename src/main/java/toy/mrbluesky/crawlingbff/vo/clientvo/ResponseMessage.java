@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TempMessage {
+public class ResponseMessage {
 
     private String product;
     private String description;
