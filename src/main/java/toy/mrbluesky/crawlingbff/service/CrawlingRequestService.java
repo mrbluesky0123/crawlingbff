@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import toy.mrbluesky.crawlingbff.vo.CrawlingRequest;
 import toy.mrbluesky.crawlingbff.vo.CrawlingResponse;
+import toy.mrbluesky.crawlingbff.vo.CrawlingResponse.CrawlingResponseBuilder;
 import toy.mrbluesky.crawlingbff.vo.clientvo.ExternalCrawlingResponse;
 import toy.mrbluesky.fwk.base.BaseService;
 
@@ -26,11 +27,13 @@ public class CrawlingRequestService {
   public CrawlingRequestService(RestTemplate restTemplate) {
     this.restTemplate = restTemplate;
   }
+
   // Call external API
-  public String requestCrawling(CrawlingRequest crawlingRequest) {
+  public ResponseEntity<CrawlingResponse> requestCrawling(CrawlingRequest crawlingRequest) {
     URI requestUri = UriComponentsBuilder.newInstance()
             .scheme("http")
-            .host("45.77.18.238:8080")
+            .host("45.77.18.238")
+            .port(8080)
             .path("/mock-mask")
             .queryParam("requestKeyword", crawlingRequest.getRequestKeyword())
             .queryParam("requestWebsite", crawlingRequest.getRequestWebsite())
@@ -38,9 +41,18 @@ public class CrawlingRequestService {
             .build()
             .encode()
             .toUri();
+    log.info(requestUri.toString());
     ExternalCrawlingResponse externalCrawlingResponse = restTemplate.getForObject(requestUri, ExternalCrawlingResponse.class);
 
-    return "SUCCESS";
+    // exception handling should be added
+    log.info(externalCrawlingResponse.toString());
+    CrawlingResponse crawlingResponse = CrawlingResponse.builder()
+                                                        .code(externalCrawlingResponse.getCode())
+                                                        .message(externalCrawlingResponse.getMessage())
+                                                        .data(externalCrawlingResponse.getData())
+                                                        .build();
+    return ResponseEntity.status(externalCrawlingResponse.getCode()).body(crawlingResponse);
+
   }
 
   // Call external API

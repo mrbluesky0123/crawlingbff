@@ -12,6 +12,6 @@ import java.util.List;
 @Data
 public class ExternalCrawlingResponseData implements BaseResponseData {
 
-    private List<ResponseMessage> responseMessages;
+    private List<ResponseMessage> message;
 
 }

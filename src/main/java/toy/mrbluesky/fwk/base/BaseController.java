@@ -15,9 +15,9 @@ public class BaseController extends BaseObject {
         return ResponseEntity.status(status).body(response);
     }
 
-    @ExceptionHandler(value = Exception.class)
-    public ResponseEntity<DefaultResponse> handleException(Exception exception, HttpServletRequest request) {
-        return this.makeResponse(HttpStatus.INTERNAL_SERVER_ERROR, exception, request);
-    }
+//    @ExceptionHandler(value = Exception.class)
+//    public ResponseEntity<DefaultResponse> handleException(Exception exception, HttpServletRequest request) {
+//        return this.makeResponse(HttpStatus.INTERNAL_SERVER_ERROR, exception, request);
+//    }
 
 }

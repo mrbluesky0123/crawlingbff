@@ -24,8 +24,7 @@ public class CrawlingRequestController {
 
   @PostMapping("/v1/crawlreq")
   public ResponseEntity<CrawlingResponse> requestCrawling(@RequestBody CrawlingRequest crawlingRequest) {
-
-    return null;
+    return this.crawlingRequestService.requestCrawling(crawlingRequest);
   }
 
   @GetMapping("/v1/test")
