@@ -14,6 +14,6 @@ public class ExternalCrawlingResponse {
 
     private int code;
     private String message;
-    private BaseResponseData data;
+    private ExternalCrawlingResponseData data;
 
 }
