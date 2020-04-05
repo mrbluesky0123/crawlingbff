@@ -3,7 +3,6 @@ package toy.mrbluesky.crawlingbff.vo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import toy.mrbluesky.fwk.base.BaseResponseData;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,7 +11,7 @@ public class CrawlingResponse {
 
   private int code;
   private String message;
-  private BaseResponseData data;
+  private BaseData data;
 
   public static CrawlingResponseBuilder builder() {
     return new CrawlingResponseBuilder();
@@ -22,7 +21,7 @@ public class CrawlingResponse {
 
     private int code;
     private String message;
-    private BaseResponseData data;
+    private BaseData data;
 
     public CrawlingResponseBuilder() {}
 
@@ -36,7 +35,7 @@ public class CrawlingResponse {
       return this;
     }
 
-    public CrawlingResponseBuilder data(BaseResponseData data) {
+    public CrawlingResponseBuilder data(BaseData data) {
       this.data = data;
       return this;
     }

@@ -1,4 +1,4 @@
-package toy.mrbluesky.fwk.exception;
+package toy.mrbluesky.crawlingbff.exception;
 
 import org.springframework.http.HttpStatus;
 

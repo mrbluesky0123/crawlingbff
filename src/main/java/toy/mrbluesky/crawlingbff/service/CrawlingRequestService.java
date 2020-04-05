@@ -11,7 +11,6 @@ import toy.mrbluesky.crawlingbff.vo.CrawlingRequest;
 import toy.mrbluesky.crawlingbff.vo.CrawlingResponse;
 import toy.mrbluesky.crawlingbff.vo.CrawlingResponse.CrawlingResponseBuilder;
 import toy.mrbluesky.crawlingbff.vo.clientvo.ExternalCrawlingResponse;
-import toy.mrbluesky.fwk.base.BaseService;
 
 import java.net.URI;
 

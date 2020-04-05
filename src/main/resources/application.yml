@@ -6,5 +6,5 @@ restTemplate:
     maxConnTotal: 100
     maxConnPerRoute: 5
 
-spring:
-  deb
+server:
+  port: 8081
