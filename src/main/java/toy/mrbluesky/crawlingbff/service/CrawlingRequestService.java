@@ -47,7 +47,7 @@ public class CrawlingRequestService {
     log.info(externalCrawlingResponse.toString());
     CrawlingResponse crawlingResponse = CrawlingResponse.builder()
                                                         .code(externalCrawlingResponse.getCode())
-                                                        .message(externalCrawlingResponse.getMessage())
+                                                        .message(externalCrawlingResponse.getStatus())
                                                         .data(externalCrawlingResponse.getData())
                                                         .build();
     return ResponseEntity.status(externalCrawlingResponse.getCode()).body(crawlingResponse);

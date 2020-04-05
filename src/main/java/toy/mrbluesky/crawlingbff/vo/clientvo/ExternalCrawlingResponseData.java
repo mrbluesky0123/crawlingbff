@@ -13,6 +13,11 @@ import java.util.List;
 @Data
 public class ExternalCrawlingResponseData implements BaseData {
 
-    private List<ResponseMessage> message;
+    private String product;
+    private String description;
+    private String stock;
+    private String price;
+    private String link;
+
 
 }
