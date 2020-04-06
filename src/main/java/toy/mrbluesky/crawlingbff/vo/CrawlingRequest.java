@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 
 @Data
 @NoArgsConstructor
@@ -12,6 +13,7 @@ import javax.validation.constraints.NotNull;
 public class CrawlingRequest {
 
   @NotNull(message = "byung-shin")
+  @NotEmpty(message = "fuck")
   private String requestKeyword;
   @NotNull(message = "byung-shin2")
   private String requestWebsite;

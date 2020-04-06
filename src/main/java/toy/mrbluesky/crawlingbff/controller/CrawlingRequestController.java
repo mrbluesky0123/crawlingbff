@@ -11,6 +11,8 @@ import toy.mrbluesky.crawlingbff.service.CrawlingRequestService;
 import toy.mrbluesky.crawlingbff.vo.CrawlingRequest;
 import toy.mrbluesky.crawlingbff.vo.CrawlingResponse;
 
+import javax.validation.Valid;
+
 @CrossOrigin
 @RestController
 @NoArgsConstructor
@@ -27,7 +29,7 @@ public class CrawlingRequestController {
 
   @PostMapping("/v1/crawlreq")
   @ApiOperation(value="Crawling 요청 전송", notes="Crawling 요청을 전송한다.")
-  public ResponseEntity<CrawlingResponse> requestCrawxling(@RequestBody CrawlingRequest crawlingRequest) {
+  public ResponseEntity<CrawlingResponse> requestCrawxling(@RequestBody @Valid CrawlingRequest crawlingRequest) {
     return this.crawlingRequestService.requestCrawling(crawlingRequest);
   }
 
