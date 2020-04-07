@@ -11,7 +11,7 @@ import toy.mrbluesky.crawlingbff.vo.clientvo.ExternalCrawlingResponseData;
 @Data
 public class CrawlingResponse {
 
-  private String code;
+  private int code;
   private String message;
   private List<ExternalCrawlingResponseData> data;
 
@@ -21,13 +21,13 @@ public class CrawlingResponse {
 
   public static class CrawlingResponseBuilder {
 
-    private String code;
+    private int code;
     private String message;
     private List<ExternalCrawlingResponseData> data;
 
     public CrawlingResponseBuilder() {}
 
-    public CrawlingResponseBuilder code(String code) {
+    public CrawlingResponseBuilder code(int code) {
       this.code = code;
       return this;
     }

@@ -13,7 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class ExternalCrawlingResponse {
 
-    private String code;
+    private int code;
     private String status;
     private List<ExternalCrawlingResponseData> data;
 
