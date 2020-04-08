@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+import toy.mrbluesky.crawlingbff.exception.NotFoundException;
 import toy.mrbluesky.crawlingbff.vo.CrawlingRequest;
 import toy.mrbluesky.crawlingbff.vo.CrawlingResponse;
 import toy.mrbluesky.crawlingbff.vo.CrawlingResponse.CrawlingResponseBuilder;
@@ -43,7 +44,13 @@ public class CrawlingRequestService {
             .encode()
             .toUri();
     log.info(requestUri.toString());
-    ExternalCrawlingResponse externalCrawlingResponse = restTemplate.getForObject(requestUri, ExternalCrawlingResponse.class);
+    ExternalCrawlingResponse externalCrawlingResponse = null;
+    try {
+      externalCrawlingResponse = restTemplate
+          .getForObject(requestUri, ExternalCrawlingResponse.class);
+    } catch(HttpClientErrorException httpClientErrorException) {
+      throw new NotFoundException(httpClientErrorException);
+    }
 
     // exception handling should be added
     log.info(externalCrawlingResponse.toString());

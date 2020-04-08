@@ -12,7 +12,7 @@ import toy.mrbluesky.crawlingbff.vo.clientvo.ExternalCrawlingResponseData;
 public class CrawlingResponse {
 
   private int code;
-  private String message;
+  private String status;
   private List<ExternalCrawlingResponseData> data;
 
   public static CrawlingResponseBuilder builder() {
@@ -22,7 +22,7 @@ public class CrawlingResponse {
   public static class CrawlingResponseBuilder {
 
     private int code;
-    private String message;
+    private String status;
     private List<ExternalCrawlingResponseData> data;
 
     public CrawlingResponseBuilder() {}
@@ -32,8 +32,8 @@ public class CrawlingResponse {
       return this;
     }
 
-    public CrawlingResponseBuilder message(String message) {
-      this.message = message;
+    public CrawlingResponseBuilder message(String status) {
+      this.status = status;
       return this;
     }
 
@@ -43,7 +43,7 @@ public class CrawlingResponse {
     }
 
     public CrawlingResponse build() {
-      return new CrawlingResponse(this.code, this.message, this.data);
+      return new CrawlingResponse(this.code, this.status, this.data);
     }
 
   }
