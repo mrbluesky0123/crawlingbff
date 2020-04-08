@@ -29,7 +29,7 @@ public class CrawlingRequestController {
 
   @PostMapping("/v1/crawlreq")
   @ApiOperation(value="Crawling 요청 전송", notes="Crawling 요청을 전송한다.")
-  public ResponseEntity<CrawlingResponse> requestCrawxling(@RequestBody @Valid CrawlingRequest crawlingRequest) {
+  public ResponseEntity<CrawlingResponse> requestCrawling(@RequestBody @Valid CrawlingRequest crawlingRequest) {
     return this.crawlingRequestService.requestCrawling(crawlingRequest);
   }
 

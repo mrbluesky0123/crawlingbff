@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import toy.mrbluesky.crawlingbff.vo.CrawlingRequest;
@@ -29,12 +30,12 @@ public class CrawlingRequestService {
   }
 
   // Call external API
-  public ResponseEntity<CrawlingResponse> requestCrawling(CrawlingRequest crawlingRequest) {
+  public ResponseEntity<CrawlingResponse> requestCrawling(CrawlingRequest crawlingRequest) throws HttpClientErrorException {
     URI requestUri = UriComponentsBuilder.newInstance()
             .scheme("http")
-            .host("45.77.18.238")
-            .port(8080)
-            .path("/mock-mask")
+            .host("45.32.29.18")
+            .port(3000)
+            .path("/mask")
             .queryParam("requestKeyword", crawlingRequest.getRequestKeyword())
             .queryParam("requestWebsite", crawlingRequest.getRequestWebsite())
             .queryParam("responseMedia", crawlingRequest.getResponseMedia())
@@ -57,7 +58,7 @@ public class CrawlingRequestService {
 
   // Call external API
   public String requestCrawling() {
-    ExternalCrawlingResponse externalCrawlingResponse = restTemplate.getForObject("http://45.77.18.238:8080/mock-mask", ExternalCrawlingResponse.class);
+    ExternalCrawlingResponse externalCrawlingResponse = restTemplate.getForObject("http://45.32.29.18:3000/mask", ExternalCrawlingResponse.class);
 //    String obj = restTemplate.getForObject("http://45.77.18.238:8080/mock-mask", String.class);
     log.info(externalCrawlingResponse.toString());
     return externalCrawlingResponse.toString();
